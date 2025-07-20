@@ -1,16 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits> 
 using namespace std;
 
-// Function to calculate maximum profit
 int maxProfit(vector<int>& prices) {
     int minPrice = INT_MAX;
     int maxProfit = 0;
 
     for (int price : prices) {
-        minPrice = min(minPrice, price);            // track minimum so far
-        maxProfit = max(maxProfit, price - minPrice); // max profit so far
+        minPrice = min(minPrice, price);
+        maxProfit = max(maxProfit, price - minPrice);
     }
 
     return maxProfit;
@@ -18,9 +18,7 @@ int maxProfit(vector<int>& prices) {
 
 int main() {
     vector<int> prices = {7, 1, 5, 3, 6, 4};
-
     int profit = maxProfit(prices);
     cout << "Maximum Profit: " << profit << endl;
-
     return 0;
 }
