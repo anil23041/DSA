@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        if (s.length() != goal.length()) return false;
+
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+          
+            string rotated = s.substr(i) + s.substr(0, i);
+            if (rotated == goal) return true;
+        }
+
+        return false;
+    }
+};
+
+int main() {
+    Solution sol;
+
+    string s1 = "abcde", goal1 = "cdeab";
+    string s2 = "abcde", goal2 = "abced";
+
+    cout << boolalpha; 
+    cout << "Example 1: " << sol.rotateString(s1, goal1) << endl;  
+    cout << "Example 2: " << sol.rotateString(s2, goal2) << endl;  
+
+    return 0;
+}
